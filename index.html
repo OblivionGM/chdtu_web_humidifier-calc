@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <title>Калькулятор мощности увлажнителя воздуха</title>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="conteiner">
+
+            <h1 class="title">Расчет нагрузки увлажнителя воздуха</h1>
+            
+            <form class="form" action="#">
+
+                <div class="form__item">
+                    <label class="form__label" for="square">Площадь помещения, кв.м.</label>
+                    <input class="form__input" type="number" name="square" id="sqr">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="square">Высота потолков, см</label>
+                    <input class="form__input" type="number" name="height" id="height">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="square">Скорость воздухообмена, 1/час</label>
+                    <input class="form__input" type="number" name="exchange" id="exch">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="startHum">Начальная влажность, %</label>
+                    <input class="form__input" type="number" name="square" id="sHum">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="endHum">Конечная влажность, %</label>
+                    <input class="form__input" type="number" name="square" id="eHum">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="temp">Температура,  &#8451;</label>
+                    <input class="form__input" type="number" name="square" id="tC">
+                </div>
+
+                <p class="form__result">Восполняемый дефицит воды в воздухе, кг/час: <span class="form__result--big">00.00</span></p>
+                <input class="form__submit" type="button" onclick="Calc()" value="Рассчитать">
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

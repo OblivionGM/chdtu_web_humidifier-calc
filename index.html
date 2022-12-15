@@ -5,129 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.min.css">
-    <title>Електронний щоденник</title>
+    <title>Калькулятор мощности увлажнителя воздуха</title>
 </head>
 <body>
 
     <div class="wrap">
-          <div class="conteiner">
-            <h1 class="title">Електронний щоденник</h1>
+        <div class="conteiner">
 
-            <form action="#" class="form">
-                <div class="form__content">
+            <h1 class="title">Расчет нагрузки увлажнителя воздуха</h1>
+            
+            <form class="form" action="#">
 
-                    <div class="form__item">
-                        <label class="form__label" for="name">ПІФ:</label>
-                        <input class="form__input" type="text" name="name" id="name">
-                    </div>
-
-                    <div class="form__item">
-                        <label class="form__label" for="group">Група:</label>
-                        <input class="form__input" type="text" name="group" id="group">
-                    </div>
-
-                    <div class="form__item">
-                        <label class="form__label" for="e_web">Оцінка з WEB:</label>
-                        <input class="form__input" type="number" name="e_web" id="e_web">
-                    </div>
-
-                    <div class="form__item">
-                        <label class="form__label" for="e_pyt">Оцінка з Python WEB:</label>
-                        <input class="form__input" type="number" name="e_pyt" id="e_pyt">
-                    </div>
-
-                    <div class="form__item">
-                        <label class="form__label" for="e_pmd">Оцінка з ПМД:</label>
-                        <input class="form__input" type="number" name="e_pmd" id="e_pmd">
-                    </div>
+                <div class="form__item">
+                    <label class="form__label" for="square">Площадь помещения, кв.м.</label>
+                    <input class="form__input" type="number" name="square" id="sqr">
                 </div>
 
-                <input class="form__btn" type="button" value="ADD" onclick="addStudentToList()">
-                <input class="form__btn" type="button" value="EDIT" onclick="editStudentInfo()">
+                <div class="form__item">
+                    <label class="form__label" for="square">Высота потолков, см</label>
+                    <input class="form__input" type="number" name="height" id="height">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="square">Скорость воздухообмена, 1/час</label>
+                    <input class="form__input" type="number" name="exchange" id="exch">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="startHum">Начальная влажность, %</label>
+                    <input class="form__input" type="number" name="square" id="sHum">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="endHum">Конечная влажность, %</label>
+                    <input class="form__input" type="number" name="square" id="eHum">
+                </div>
+
+                <div class="form__item">
+                    <label class="form__label" for="temp">Температура,  &#8451;</label>
+                    <input class="form__input" type="number" name="square" id="tC">
+                </div>
+
+                <p class="form__result">Восполняемый дефицит воды в воздухе, кг/час: <span class="form__result--big">00.00</span></p>
+                <input class="form__submit" type="button" onclick="Calc()" value="Рассчитать">
+
             </form>
 
-
-            <table class="table">
-
-                <thead class="table__header">
-                    <tr class="table__row">
-                        <td class="table__column">ПІФ</td>
-                        <td class="table__column">Група</td>
-                        <td class="table__column">WEB</td>
-                        <td class="table__column">Python WEB</td>
-                        <td class="table__column">ПМД</td>
-                        <td class="table__column">Дія</td>
-                    </tr>
-                </thead>
-
-                <tbody class="table__body">
-
-                    <tr class="table__row">
-                        <td class="table__column">Чорновол Д.Т.</td>
-                        <td class="table__column">ПЗС-2244</td>
-                        <td class="table__column">5</td>
-                        <td class="table__column">4</td>
-                        <td class="table__column">5</td>
-                        <td class="table__column">
-                            <input class="table__btn table__btn_edit" type="button" value="edit">
-                            <input class="table__btn table__btn_delete" type="button" value="delete">
-                        </td>
-                    </tr>
-
-                    <tr class="table__row">
-                        <td class="table__column">Жаботинський І.В.</td>
-                        <td class="table__column">ПЗС-2244</td>
-                        <td class="table__column">4</td>
-                        <td class="table__column">4</td>
-                        <td class="table__column">4</td>
-                        <td class="table__column">
-                            <input class="table__btn table__btn_edit" type="button" value="edit">
-                            <input class="table__btn table__btn_delete" type="button" value="delete">
-                        </td>
-                    </tr>
-
-                    <tr class="table__row">
-                        <td class="table__column">Шевченко Т.Г.</td>
-                        <td class="table__column">ПЗС-2244</td>
-                        <td class="table__column">3</td>
-                        <td class="table__column">3</td>
-                        <td class="table__column">3</td>
-                        <td class="table__column">
-                            <input class="table__btn table__btn_edit" type="button" value="edit">
-                            <input class="table__btn table__btn_delete" type="button" value="delete">
-                        </td>
-                    </tr>
-
-                    <tr class="table__row">
-                        <td class="table__column">Понамарєв І.С.</td>
-                        <td class="table__column">ПЗС-2244</td>
-                        <td class="table__column">5</td>
-                        <td class="table__column">4</td>
-                        <td class="table__column">5</td>
-                        <td class="table__column">
-                            <input class="table__btn table__btn_edit" type="button" value="edit">
-                            <input class="table__btn table__btn_delete" type="button" value="delete">
-                        </td>
-                    </tr>
-
-                    <tr class="table__row">
-                        <td class="table__column">Шевчук Д.М.</td>
-                        <td class="table__column">ПЗС-2244</td>
-                        <td class="table__column">5</td>
-                        <td class="table__column">4</td>
-                        <td class="table__column">5</td>
-                        <td class="table__column">
-                            <input class="table__btn table__btn_edit" type="button" value="edit">
-                            <input class="table__btn table__btn_delete" type="button" value="delete">
-                        </td>
-                    </tr>
-                </tbody>
-
-            </table>
-
-          </div>
+        </div>
     </div>
 
-    <script src="scripts/app.js"></script>
+    <script src="/scripts/script.js"></script>
 </body>
 </html>
